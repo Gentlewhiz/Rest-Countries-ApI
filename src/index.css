@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+  background-color: theme('colors.lightBg');
+  color-scheme: light;
+}
+
+html.dark {
+  background-color: theme('colors.darkBg');
+  color-scheme: dark;
+}
+
+body {
+  @apply font-sans antialiased;
+  background-color: inherit;
+}
+
+img {
+  color: transparent;
+}
