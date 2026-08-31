@@ -4,7 +4,31 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>rest-countries-api</title>
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Browse, search, and filter every country in the world by name and region, then view detailed country data including population, capital, currencies, languages, and border countries."
+    />
+    <title>Where in the world? | REST Countries API</title>
+    <script>
+      // Applied synchronously, before first paint, so the correct theme is
+      // shown immediately on load/refresh instead of flashing light mode
+      // and then switching. Mirrors getInitialTheme() in
+      // src/context/ThemeProvider.jsx exactly, so React agrees with what
+      // this already did and never causes a second, visible flip.
+      (function () {
+        try {
+          var t =
+            localStorage.getItem('theme') ||
+            (matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light');
+          document.documentElement.classList.toggle('dark', t === 'dark');
+        } catch (e) {
+          // localStorage/matchMedia unavailable - fall back to light mode.
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
